@@ -9,13 +9,4 @@
  * Main module of the application.
  */
 angular
-  .module('erykzimonczykplApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ]);
+  .module('erykzimonczykplApp', ['slick']);

@@ -2,12 +2,14 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>EZ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -20,17 +22,19 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <nav>
+    <nav ng-controller="scrollCtrl">
       <div class="navbar-header">
         <a class="brand" href="#/">Eryk Zimończyk</a>
       </div>
       <div class="navbar-options">
         <ul class="navbar-list">
-          <li class="active"><a href="#/">About</a></li>
+          <li class="active"><a ng-click="goTo('about-me')">About</a></li>
           <li class="separator">|</li>
-          <li><a ng-href="#/about">Skills</a></li>
+          <li><a ng-click="goTo('skills-info')">Skills</a></li>
           <li class="separator">|</li>
-          <li><a ng-href="#/">Contact</a></li>
+          <li><a ng-click="goTo('portfolio')">Portfolio</a></li>
+          <li class="separator">|</li>
+          <li><a ng-click="goTo('contact')">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -78,40 +82,108 @@
       <section id="skills-info">
         <div class="info-container">
           <header class="info-header">Skills</header>
-          <ul class="skill-list">
+          <slick dots="false" infinite="true" speed="300" slides-to-show="3" touch-move="true" slides-to-scroll="1" autoplay="true" autoplay-speed="2000">
+            <div>
+              <span>
+                <img src="images/angularjs.png" alt="AngularJS" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/grunt.png" alt="Grunt" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/html.png" alt="HTML5" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/css3-logo.png" alt="CSS3" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/yo.png" alt="Yeoman" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/jira.png" alt="JIRA" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/less.png" alt="less" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/sass.png" alt="Sass" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/bootstrap.png" alt="Bootstrap"/>
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/bower.png" alt="Bower" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/Atom_icon.png" alt="Atom" />
+              </span>
+            </div>
+            <div>
+              <span>
+                <img src="images/logo-fontawesome.png" alt="Font Awesome" />
+              </span>
+            </div>
+          </slick>
+        </div>
+      </section>
+      <section id="portfolio">
+        <div class="info-container">
+          <header class="info-header">My works</header>
+          <ul class="counter-list">
             <li>
-              JavaScript
-              <level length="50px"></level>
+              <a href="ornamental/index.html"><img src="images/osn.png"></a>
+              <span class="info">Ornamental Shrubs Nursery</span>
             </li>
-            <li>
-              CSS3
-              <level length="50px"></level>
-            </li>
-            <li>
-              HTML5
-              <level length="50px"></level>
-            </li>
-            <li>
-              Photoshop
-              <level length="50px"></level>
-            </li>
-            <li>
-              JavaScript
-              <level length="50px"></level>
+            <li class="middle">
+              <a href="wks/index.html"><img src="images/wks.png"></a>
+              <span class="info" >Wytwórnia Konstrukcji Stalowych</span>
             </li>
           </ul>
         </div>
       </section>
     </div>
 
-    <footer>
-      <p><span class="glyphicon glyphicon-heart"></span> from  team</p>
+    <footer id="contact">
+      <div class="info-container">
+        <header class="info-header">Contact</header>
+        <div>
+          <div class="contact-list">
+            <a href="https://www.facebook.com/ezimonczyk"><i class="fa fa-facebook-square fa-5x"></i></a>
+            <a href="https://www.linkedin.com/in/erykzimonczyk"><i class="fa fa-linkedin-square fa-5x"></i></a>
+          </div>
+          <div class="contact-list last">
+            <a href="https://www.google.com/+ErykZimończyk"><i class="fa fa-google-plus-square fa-5x"></i></a>
+            <a href="mailto:erykzimonczyk@gmail.com"><i class="fa fa-envelope-square fa-5x"></i></a>
+          </div>
+        </div>
+      </div>
     </footer>
 
 
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
@@ -121,13 +193,15 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+    <script src="bower_components/angular-slick/dist/slick.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/scroll.js"></script>
         <!-- endbuild -->
 </body>
 </html>
